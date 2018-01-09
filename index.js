@@ -1,4 +1,4 @@
-class DotFormDrawing extends FormDrawing {
+class DotFormDrawing extends FormDrawingBase {
   __getMaxCircleSize(circle_config) {
     return Math.max(
       Number(circle_config.circle_radius),

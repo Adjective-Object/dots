@@ -1,4 +1,4 @@
-class FormDrawing {
+class FormDrawingBase {
   constructor() {}
 
   init() {
