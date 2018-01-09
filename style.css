@@ -1,0 +1,84 @@
+*, *:before, *:after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html, body {
+	height: 100%;
+	width: 100%;
+}
+
+#application-container {
+	min-height: 100%;
+	width: 100%;
+	position: relative;
+	display: flex;
+	flex-direction: row-reverse;
+}
+
+#dots-container {
+	position: fixed;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 250px;
+}
+
+#dots-menu {
+	width: 250px;
+	background-color: #222222;
+	color: white;
+	font-family: sans-serif;
+	font-weight: lighter;
+	font-size: 11px;
+	min-height:;
+	padding: 1em;
+}
+
+#dots-menu form {
+	padding: 1em;
+}
+
+#dots-menu label {
+	display: block;
+}
+
+#dots-menu label:not(:first-child), #dots-menu .paired-inputs {
+	padding-top: 0.2em;
+}
+
+#dots-menu input[type="color"] {
+	padding: 0;
+	border: 0;
+	outline: 0;
+	margin-left: auto;
+	box-sizing: border-box;
+}
+
+#dots-menu input[type="range"] {
+	width: 6	0%;
+	margin-right: 10%;
+}
+
+#dots-menu input[type="range"] + input[type="number"] {
+	width: 20%;
+}
+
+.paired-inputs {
+	justify-content: space-between;
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+}
+
+#download-link {
+	background-color: white;
+	color: black;
+	padding: 0.5em;
+	text-decoration: none;
+}
+
+form[data-state-key="meta"] {
+	display: none;
+}

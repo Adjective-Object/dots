@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dots</title>
+	<link rel="stylesheet" type="text/css" href="./style.css">
+
+	<script type="text/javascript" src="./lib/get-bin.js"></script>
+	<script type="text/javascript" src="./lib/grid-coordinates.js"></script>
+	<script type="text/javascript" src="./lib/guid.js"></script>
+	<script type="text/javascript" src="./lib/svg-resize.js"></script>
+
+	<script type="text/javascript" src="./FormState.js"></script>
+	<script type="text/javascript" src="./FormDrawing.js"></script>
+	<script type="text/javascript" src="./index.js"></script>
+</head>
+<body>
+<section id="application-container">
+	<section id="dots-container">
+		<svg id="dots-svg" xmlns="http://www.w3.org/2000/svg" xmlns:dots="dots" version="1.1">
+		</svg>
+	</section>
+	<section id="dots-menu">
+		<form data-state-key="meta">
+			<label for="version">Text</label>
+			<input name="version" type="hidden" value="0.0.1"/>
+		</form>
+		<form data-state-key="content">
+			<label for="text">Text</label>
+			<input name="text" type="text" value="Do your best"/>
+		</form>
+		<form id="form-style" data-state-key="style">
+			<h3>Style</h3>
+			<label for="padding">External Padding</label>
+			<input name="padding" type="range" min="0.0" max="10" step="1"/>
+			<input name="padding" type="number"/>
+			<label for="h_grid">Horizontal Grid Size</label>
+			<input name="h_grid" type="range" min="0.0" max="20" step="1" value="8"/>
+			<input name="h_grid" type="number"/>
+			<label for="v_grid">Vertical Grid Size</label>
+			<input name="v_grid" type="range" min="0.0" max="20" step="1" value="12"/>
+			<input name="v_grid" type="number"/>
+			<label for="h_space">Horizontal Spacing</label>
+			<input name="h_space" type="range" min="0.0" max="20" step="0.01"/>
+			<input name="h_space" type="number"/>
+			<label for="v_space">Vertical Spacing</label>
+			<input name="v_space" type="range" min="0.0" max="20" step="0.01"/>
+			<input name="v_space" type="number"/>			<section class="paired-inputs">
+				<label for="background_color">Background Color</label>
+				<input name="background_color" type="color" value="#EEEEEE"/>
+			</section>
+			<section class="paired-inputs">
+				<label for="stroke_color">Stroke Color</label>
+				<input name="stroke_color" type="color" value="#222222"/>
+			</section>
+		</form>
+
+		<form id="form-config-0" data-state-key="0">
+			<h3>Zeroes</h3>
+			<label for="circle_radius">Inner Circle Radius</label>
+			<input name="circle_radius" type="range" min="0.0" max="5.0" step="0.01" value="0.4"/>
+			<input name="circle_radius" type="number"/>
+			<label for="ring_radius">Outer Ring Radius</label>
+			<input name="ring_radius" type="range" min="0.0" max="5.0" step="0.01" value="2.0"/>
+			<input name="ring_radius" type="number"/>
+			<label for="ring_stroke_width">Outer Ring Stroke Width</label>
+			<input name="ring_stroke_width" type="range" min="0.0" max="5.0" step="0.01" value="0"/>
+			<input name="ring_stroke_width" type="number"/>
+		</form>
+
+		<form id="form-config-1" data-state-key="1">
+			<h3>Ones</h3>
+			<label for="circle_radius">Inner Circle Radius</label>
+			<input name="circle_radius" type="range" min="0.0" max="5.0" step="0.01" value="1.0"/>
+			<input name="circle_radius" type="number"/>
+			<label for="ring_radius">Outer Ring Radius</label>
+			<input name="ring_radius" type="range" min="0.0" max="5.0" step="0.01" value="2.0"/>
+			<input name="ring_radius" type="number"/>
+			<label for="ring_stroke_width">Outer Ring Stroke Width</label>
+			<input name="ring_stroke_width" type="range" min="0.0" max="5.0" step="0.01" value="0.4"/>
+			<input name="ring_stroke_width" type="number"/>
+		</form>
+
+		<a href="#" id="download-link">Save</a>
+
+	</section>
+</section>
+</body>
+</html>
