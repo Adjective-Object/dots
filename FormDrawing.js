@@ -2,9 +2,9 @@ class FormDrawing {
   constructor() {}
 
   init() {
-    let svgContainer = document.getElementById('dots-container');
-    let svgElement = document.getElementById('dots-svg');
-    let saveCanvasButton = document.getElementById('download-link');
+    let svgContainer = document.getElementById("dots-container");
+    let svgElement = document.getElementById("dots-svg");
+    let saveCanvasButton = document.getElementById("download-link");
     /////////////////////
     // Live Update SVG //
     /////////////////////
@@ -21,17 +21,17 @@ class FormDrawing {
         let boundingRect = this.__getBoundingRect(state);
         let rectSVG = this.__renderBackgroundRect(
           boundingRect,
-          state.style.background_color,
+          state.style.background_color
         );
         let diagramSVG = this.__renderDiagram(state);
         svgElement.innerHTML = rectSVG + diagramSVG;
-        svgElement.setAttribute('dots:config', JSON.stringify(state));
+        svgElement.setAttribute("dots:config", JSON.stringify(state));
 
         // Update viewbox
         svgElement.setAttribute(
-          'viewBox',
+          "viewBox",
           `${boundingRect.x},${boundingRect.y},` +
-            `${boundingRect.width},${boundingRect.height}`,
+            `${boundingRect.width},${boundingRect.height}`
         );
 
         // Set the container's background color to get the whole "editing"
@@ -45,23 +45,23 @@ class FormDrawing {
     ////////////
     let resize = () => {
       let boundingRect = svgContainer.getBoundingClientRect();
-      svgElement.setAttribute('width', boundingRect.width);
-      svgElement.setAttribute('height', boundingRect.height);
+      svgElement.setAttribute("width", boundingRect.width);
+      svgElement.setAttribute("height", boundingRect.height);
     };
 
     resize();
-    window.addEventListener('resize', resize);
+    window.addEventListener("resize", resize);
 
     //////////////
     // Download //
     //////////////
-    saveCanvasButton.addEventListener('click', () => {
+    saveCanvasButton.addEventListener("click", () => {
       // Build the output file
       let svgElementClone = svgElement.cloneNode(true);
-      svgElementClone.removeAttribute('width');
-      svgElementClone.removeAttribute('height');
+      svgElementClone.removeAttribute("width");
+      svgElementClone.removeAttribute("height");
       console.log(svgElementClone);
-      let svg_file = new File([svgElementClone.outerHTML], 'canvas.svg');
+      let svg_file = new File([svgElementClone.outerHTML], "canvas.svg");
       let svg_url = URL.createObjectURL(svg_file);
       saveCanvasButton.href = svg_url;
 
@@ -84,10 +84,10 @@ class FormDrawing {
   }
 
   __renderDiagram(state) {
-    throw new Error('Render not implemented');
+    throw new Error("Render not implemented");
   }
 
   __getBoundingRect(state) {
-    throw new Error('getBoundingRect not implemented');
+    throw new Error("getBoundingRect not implemented");
   }
 }

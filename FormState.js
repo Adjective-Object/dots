@@ -5,10 +5,10 @@ class FormState {
   }
 
   init(domRoot) {
-    Array.from(domRoot.querySelectorAll('form')).map(form => {
-      let formKey = form.getAttribute('data-state-key');
+    Array.from(domRoot.querySelectorAll("form")).map(form => {
+      let formKey = form.getAttribute("data-state-key");
       this.state[formKey] = {};
-      let inputElements = Array.from(form.querySelectorAll('input'));
+      let inputElements = Array.from(form.querySelectorAll("input"));
 
       // Initialize state
       inputElements.map(inputElement => {
@@ -19,10 +19,10 @@ class FormState {
 
       // Register listeners for update
       inputElements.map(inputElement => {
-        inputElement.addEventListener('input', e => {
+        inputElement.addEventListener("input", e => {
           this.__maybeSetStateFromInputElement(
             this.state[formKey],
-            inputElement,
+            inputElement
           );
           this.__setOtherValues(form, inputElement);
           this.__triggerAllListeners();
@@ -35,10 +35,10 @@ class FormState {
   }
 
   updateDom(domRoot) {
-    Array.from(domRoot.querySelectorAll('form')).map(form => {
-      let formKey = form.getAttribute('data-state-key');
-      Array.from(form.querySelectorAll('input')).map(inputElement => {
-        let inputKey = inputElement.getAttribute('name');
+    Array.from(domRoot.querySelectorAll("form")).map(form => {
+      let formKey = form.getAttribute("data-state-key");
+      Array.from(form.querySelectorAll("input")).map(inputElement => {
+        let inputKey = inputElement.getAttribute("name");
         if (formKey === null || inputKey === null) return;
         inputElement.value = this.state[formKey][inputKey];
       });
@@ -47,7 +47,7 @@ class FormState {
 
   __setOtherValues(form, inputElement) {
     let inputElements = form.querySelectorAll(
-      `input[name="${inputElement.getAttribute('name')}"]`,
+      `input[name="${inputElement.getAttribute("name")}"]`
     );
     Array.from(inputElements).map(element => {
       if (element !== inputElement) {
@@ -57,10 +57,10 @@ class FormState {
   }
 
   __maybeSetStateFromInputElement(state, inputElement) {
-    let name = inputElement.getAttribute('name');
+    let name = inputElement.getAttribute("name");
     if (
       name === null ||
-      (inputElement.type !== 'text' && inputElement.value === '')
+      (inputElement.type !== "text" && inputElement.value === "")
     )
       return;
     state[name] = inputElement.value;
